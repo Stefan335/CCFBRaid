@@ -14,9 +14,9 @@ import javafx.scene.control.RadioButton;
 
 public class RAID2 extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture imgCan1, imgCan2, imgCan3, imgCan4, imgthing;
-	Sprite spCan1, spCan2, spCan3, spCan4, thing;
-	int nNum=0, thingX=100, thingY=0;
+	Texture imgCan1, imgCan2, imgCan3, imgCan4;
+	Sprite spCan1, spCan2, spCan3, spCan4;
+	int nNum=0;
 	@Override
 	public void create () {
 
@@ -25,12 +25,10 @@ public class RAID2 extends ApplicationAdapter {
 		imgCan2 = new Texture("raidfly copy.png");
 		imgCan3 = new Texture("RAIDBIG copy.png");
 		imgCan4 = new Texture("RAIDMAX copy.png");
-		imgthing = new Texture("ant1.png");
 		spCan1= new Sprite(imgCan1);
 		spCan2= new Sprite(imgCan2);
 		spCan3= new Sprite(imgCan3);
 		spCan4= new Sprite(imgCan4);
-		thing= new Sprite(imgthing);
 		spCan1.setSize(100, 100);
 		spCan2.setSize(100, 100);
 		spCan3.setSize(100, 100);
@@ -88,14 +86,6 @@ public class RAID2 extends ApplicationAdapter {
 
 			}
 		}
-		if(thingX<=spCan1.getX()+1){
-			thingX += 1;
-		}
-		if(thingX>=spCan1.getX()){
-			if(thingX>=100){
-				thingX -= 100;
-			}
-		}
 		//Problems with clicking on image locations. For unknown reasons the y-coordinates seem to be
 		//working improperly. Eg; the positions of Can2 and Can4 seem to be flipped with each others
 		//when trying to click the images, to move Can1 the bottom right corner must be pressed as
@@ -109,7 +99,6 @@ public class RAID2 extends ApplicationAdapter {
 		spCan2.draw(batch);
 		spCan3.draw(batch);
 		spCan4.draw(batch);
-		batch.draw(thing, (int)thingX, (int)thingY);
 		batch.end();
 	}
 }
